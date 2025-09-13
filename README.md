@@ -17,12 +17,12 @@
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/Achour/nextjs-better-auth.git
+   git clone https://github.com/aryomuzakki/nextjs-admin-better-auth.git
    cd nextjs-better-auth
    ```
 2. Install dependencies:
    ```sh
-   npm install
+   bun install
    ```
 3. Set up environment variables:
 
@@ -35,18 +35,18 @@
 4. Set up the database:
 
    ```sh
-   npx prisma migrate dev
+   bunx prisma migrate dev
    ```
 
 5. Start the development server:
    ```sh
-   npm run dev
+   bun run dev
    ```
 
 ## 🚀 Usage
 
-- Run `npm run dev` to start the development server.
-- Use `npx prisma studio` to manage your database visually.
+- Run `bun run dev` to start the development server.
+- Use `bunx prisma studio` to manage your database visually.
 - Customize authentication using Better Auth settings.
 
 ## 🛠️ Tech Stack
@@ -59,4 +59,4 @@
 
 ---
 
-Made with ❤️ by [Achour Meguenni](https://github.com/Achour)
+Modified by [M Aryo Muzakki](https://github.com/aryomuzakki) from [Achour Meguenni](https://github.com/Achour/nextjs-better-auth)

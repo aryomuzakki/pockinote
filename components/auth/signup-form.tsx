@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/custom-button";
 import {
   Card,
   CardContent,
@@ -16,9 +16,10 @@ import { useRouter } from "next/navigation";
 
 import { authClient } from "@/lib/auth-client";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-import { Terminal } from "lucide-react";
+import { EyeClosedIcon, EyeIcon, EyeOffIcon, Terminal } from "lucide-react";
 
 import { IconLoader } from "@tabler/icons-react";
+import Link from "next/link";
 
 export function SignupForm({
   className,
@@ -29,6 +30,7 @@ export function SignupForm({
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -93,7 +95,7 @@ export function SignupForm({
                   value={fullname}
                   id="name"
                   type="text"
-                  placeholder="Achour Meguenni"
+                  placeholder="John Doe"
                   required
                 />
               </div>
@@ -111,20 +113,33 @@ export function SignupForm({
               <div className="grid gap-3">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
-                  <a
-                    href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </a>
+                  <Button variant={'textLink'} asChild>
+                    <a
+                      href="#"
+                      className="ml-auto"
+                    >
+                      Forgot your password?
+                    </a>
+                  </Button>
                 </div>
-                <Input
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  id="password"
-                  type="password"
-                  required
-                />
+                <div className="relative">
+                  <Input
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    required
+                  />
+                  <Button
+                    variant={'ghost'}
+                    size={'icon'}
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute top-0 right-0"
+                  >
+                    {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+                  </Button>
+                </div>
               </div>
               <div className="flex flex-col gap-3">
                 <Button disabled={loading} type="submit" className="w-full">
@@ -134,16 +149,15 @@ export function SignupForm({
                     "Sign Up"
                   )}
                 </Button>
-                <Button variant="outline" className="w-full">
-                  Sign Up with Google
-                </Button>
               </div>
             </div>
             <div className="mt-4 text-center text-sm">
               Already have an account?{" "}
-              <a href="/login" className="underline underline-offset-4">
-                Login
-              </a>
+              <Button variant={'inlineLink'} asChild>
+                <Link href="/login">
+                  Login
+                </Link>
+              </Button>
             </div>
           </form>
         </CardContent>

@@ -25,10 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Replace this with your own analytics script */}
-        <script defer src="https://cloud.umami.is/script.js" data-website-id="352eab6a-a921-4d6b-b73c-3282f2a38d2f"></script>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id={process.env.UMAMI_ANALYTICS_ID}></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

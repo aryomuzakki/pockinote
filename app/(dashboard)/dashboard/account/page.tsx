@@ -65,7 +65,7 @@ export default function Page() {
                 value={fullname}
                 id="name"
                 type="text"
-                placeholder="Achour Meguenni"
+                placeholder="John Doe"
                 required
               />
             </div>

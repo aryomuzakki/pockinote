@@ -9,6 +9,7 @@ import {
   IconLockSquareRoundedFilled,
   IconShieldCheckFilled,
 } from "@tabler/icons-react";
+import { GithubIcon } from "@/components/icons";
 
 export default async function page() {
   const session = await auth.api.getSession({
@@ -65,7 +66,8 @@ export default async function page() {
           <div className="flex gap-4 mt-4">
             <a
               target="_blank"
-              href="https://github.com/Achour/nextjs-better-auth"
+              rel="noopener noreferrer"
+              href="https://github.com/aryomuzakki/nextjs-admin-better-auth.git"
             >
               <Button size="lg" className="gap-2">
                 Clone Repository <IconChevronRight size={18} />
@@ -89,31 +91,26 @@ export default async function page() {
             <IconLockSquareRoundedFilled size={20} className="text-primary" />
             <span className="font-bold">Auth Starter Kit</span>
           </div>
-          <div className="flex gap-8">
+          <div className="flex gap-2 items-center text-sm text-muted-foreground">
+            <div className="">
+              © {new Date().getFullYear() > 2025 ? `2025 - ${new Date().getFullYear()} ` : "2025 "}
+              <a
+                href="https://muzakki.id"
+                target="_blank"
+                className="hover:text-foreground transition"
+              >
+                M Aryo Muzakki
+              </a>
+            </div>
+            <span>|</span>
             <a
-              href="https://github.com/achour"
+              href="https://github.com/aryomuzakki"
               target="_blank"
-              className="text-sm text-muted-foreground hover:text-foreground"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition"
             >
-              Github
+              <GithubIcon className="size-5" />
             </a>
-            <a
-              href="https://www.achour.dev"
-              target="_blank"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              Portfolio
-            </a>
-            <a
-              href="https://x.com/achourdev"
-              target="_blank"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              Contact
-            </a>
-          </div>
-          <div className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Achour Meguenni
           </div>
         </div>
       </footer>

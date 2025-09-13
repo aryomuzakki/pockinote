@@ -1,0 +1,1 @@
+export { default as GithubIcon, defaultColor as GithubIconHex } from './icons/GithubIcon';

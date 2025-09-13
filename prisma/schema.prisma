@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model account {
+model Account {
   id                    String    @id
   accountId             String
   providerId            String
@@ -21,10 +21,10 @@ model account {
   password              String?
   createdAt             DateTime
   updatedAt             DateTime
-  user                  user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model session {
+model Session {
   id        String   @id
   expiresAt DateTime
   token     String   @unique
@@ -33,10 +33,10 @@ model session {
   ipAddress String?
   userAgent String?
   userId    String
-  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model user {
+model User {
   id            String    @id
   name          String
   email         String    @unique
@@ -44,11 +44,11 @@ model user {
   image         String?
   createdAt     DateTime
   updatedAt     DateTime
-  account       account[]
-  session       session[]
+  account       Account[]
+  session       Session[]
 }
 
-model verification {
+model Verification {
   id         String    @id
   identifier String
   value      String
